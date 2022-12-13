@@ -1,6 +1,6 @@
 import { Form, Link } from '@remix-run/react'
 
-import { useOptionalUser } from '~/utils'
+import { useOptionalUser } from '~/utils/misc'
 
 export default function Index() {
 	const user = useOptionalUser()
@@ -11,33 +11,33 @@ export default function Index() {
 					<div className="relative shadow-xl sm:overflow-hidden sm:rounded-2xl">
 						<div className="absolute inset-0">
 							<img
-								className="h-full w-full object-cover"
+								className="object-cover w-full h-full"
 								src="https://user-images.githubusercontent.com/1500684/179116409-7224afd1-57b5-4299-9024-90477d6fbecb.jpg"
 								alt="Sonic The Hedgehog running through a ring and away from missiles"
 							/>
 							<div className="absolute inset-0 bg-[color:rgba(59,130,246,0.5)] mix-blend-multiply" />
 						</div>
 						<div className="relative px-4 pt-16 pb-8 sm:px-6 sm:pt-24 sm:pb-14 lg:px-8 lg:pb-20 lg:pt-32">
-							<h1 className="text-center text-6xl font-extrabold tracking-tight sm:text-8xl lg:text-9xl">
-								<span className="block uppercase text-blue-500 drop-shadow-md">
+							<h1 className="text-6xl font-extrabold tracking-tight text-center sm:text-8xl lg:text-9xl">
+								<span className="block text-blue-500 uppercase drop-shadow-md">
 									KCD Quick Stack
 								</span>
 							</h1>
-							<p className="mx-auto mt-6 max-w-lg text-center text-xl text-white sm:max-w-3xl">
+							<p className="max-w-lg mx-auto mt-6 text-xl text-center text-white sm:max-w-3xl">
 								Check the README.md file for instructions on how to get this
 								project deployed.
 							</p>
-							<div className="mx-auto mt-10 max-w-sm sm:flex sm:max-w-none sm:justify-center">
+							<div className="max-w-sm mx-auto mt-10 sm:flex sm:max-w-none sm:justify-center">
 								{user ? (
 									<Form action="/logout" method="post">
-										<button className="flex items-center justify-center rounded-md bg-blue-500 px-4 py-3 font-medium text-white hover:bg-blue-600">
-											Logout of {user.email}
+										<button className="flex items-center justify-center px-4 py-3 font-medium text-white bg-blue-500 rounded-md hover:bg-blue-600">
+											Logout of {user.name}
 										</button>
 									</Form>
 								) : (
 									<Link
 										to="/login"
-										className="flex items-center justify-center rounded-md bg-blue-500 px-4 py-3 font-medium text-white hover:bg-blue-600"
+										className="flex items-center justify-center px-4 py-3 font-medium text-white bg-blue-500 rounded-md hover:bg-blue-600"
 									>
 										Log In
 									</Link>
@@ -54,8 +54,8 @@ export default function Index() {
 					</div>
 				</div>
 
-				<div className="mx-auto max-w-7xl py-2 px-4 sm:px-6 lg:px-8">
-					<div className="mt-6 flex flex-wrap justify-center gap-8">
+				<div className="px-4 py-2 mx-auto max-w-7xl sm:px-6 lg:px-8">
+					<div className="flex flex-wrap justify-center gap-8 mt-6">
 						{[
 							{
 								src: 'https://user-images.githubusercontent.com/1500684/157764397-ccd8ea10-b8aa-4772-a99b-35de937319e1.svg',
@@ -96,7 +96,7 @@ export default function Index() {
 							<a
 								key={img.href}
 								href={img.href}
-								className="flex h-16 w-32 justify-center p-1 grayscale transition hover:grayscale-0 focus:grayscale-0"
+								className="flex justify-center w-32 h-16 p-1 transition grayscale hover:grayscale-0 focus:grayscale-0"
 							>
 								<img alt={img.alt} src={img.src} />
 							</a>
