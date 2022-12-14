@@ -91,7 +91,7 @@ jobs:
       fail-fast: false
       matrix:
         # run 3 copies of the current job in parallel
-        containers: ['🐨 Kody', '💯 Hannah', '🦉 Olivia']
+        machines: ['🐨 Kody', '💯 Hannah', '🦉 Olivia']
     steps:
       - name: 🛑 Cancel Previous Runs
         uses: styfle/cancel-workflow-action@0.11.0
@@ -126,7 +126,7 @@ jobs:
           group: 'Rocket Cypress'
         env:
           PORT: '8811'
-          CYPRESS_RECORD_KEY: ${{secrets.CYPRESS_RECORD_KEY}}
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
 
   build:
     name: 🐳 Build
